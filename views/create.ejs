@@ -1,0 +1,98 @@
+<!-- views/update.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... (head) ... -->
+    <title>Tambahkan Data</title>
+    <style>
+      body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150vh;
+        margin: 0;
+        background-color: rgb(152, 152, 152);
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+      }
+
+      label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+        /* box-sizing: border-box; */
+        border-radius: 20px;
+        border-color: black;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        border: 2px solid #000000;
+      }
+
+      a {
+        margin-top: 20px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tambahkan Data</h1>
+
+    <form action="/create" method="post">
+      <!-- Form for adding new data -->
+      <label for="time">Time:</label>
+      <input type="datetime-local" id="time" name="time" required />
+
+      <label for="AMB_TEMP">AMB_TEMP "AMB_Temperature":</label>
+      <input type="text" id="AMB_TEMP" name="AMB_TEMP" required />
+
+      <label for="station">Station:</label>
+      <input type="text" id="station" name="station" required />
+
+      <label for="CH4">CH4:</label>
+      <input type="text" id="CH4" name="CH4" required />
+
+      <label for="CO">CO:</label>
+      <input type="text" id="CO" name="CO" required />
+
+      <label for="NOx">NMHC:</label>
+      <input type="text" id="NMHC" name="NMHC" required />
+
+      <label for="NO">NO:</label>
+      <input type="text" id="NO" name="NO" required />
+
+      <label for="NOx">NOx:</label>
+      <input type="text" id="NOx" name="NOx" required />
+
+      <label for="O3">O3:</label>
+      <input type="text" id="O3" name="O3" required />
+
+      <button type="submit">Add Data</button>
+    </form>
+
+    <a href="/"><button>Back to Home</button></a>
+  </body>
+</html>

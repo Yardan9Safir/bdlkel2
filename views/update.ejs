@@ -1,0 +1,118 @@
+<!-- views/update.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... (head) ... -->
+    <title>Update Air Data</title>
+    <style>
+      body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 120vh;
+        margin: 0;
+        background-color: rgb(152, 152, 152);
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+      }
+
+      label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+        /* box-sizing: border-box; */
+        border-radius: 20px;
+        border-color: black;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 2px solid #000000;
+      }
+
+      a {
+        margin-top: 20px;
+        text-decoration: none;
+        color: #4caf50;
+      }
+
+      .btn1 {
+        padding: 10px;
+        background: #20b915;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        border: 2px solid #20b915;
+        border-radius: 10%;
+        border: 2px solid #000000;
+      }
+      .btn3 {
+        margin-top: 15px;
+        padding: 10px;
+        color: rgb(0, 0, 0);
+        background: #20b915;
+        border: 2px solid #20b915;
+        border-radius: 10%;
+        border: 2px solid #000000;
+      }
+      .btn3 a {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Update Data</h1>
+
+    <form action="/update/<%= data._id %>" method="post">
+      <!-- Form for update -->
+      <label for="time">Time:</label>
+      <input type="text" id="time" name="time" value="<%= data.time %>" required />
+
+      <label for="station">Station:</label>
+      <input type="text" id="station" name="station" value="<%= data.station %>" required />
+
+      <label for="CH4">CH4:</label>
+      <input type="text" id="CH4" name="CH4" value="<%= data.CH4 %>" required />
+
+      <label for="CO">CO:</label>
+      <input type="text" id="CO" name="CO" value="<%= data.CO %>" required />
+
+      <label for="NO">NO:</label>
+      <input type="text" id="NO" name="NO" value="<%= data.NO %>" required />
+
+      <label for="NOx">NOx:</label>
+      <input type="text" id="NOx" name="NOx" value="<%= data.NOx %>" required />
+
+      <label for="O3">O3:</label>
+      <input type="text" id="O3" name="O3" value="<%= data.O3 %>" required />
+
+      <button class="btn1" type="submit">Update</button>
+    </form>
+
+    <button class="btn3">
+      <a href="/">Back to Home</a>
+    </button>
+  </body>
+</html>

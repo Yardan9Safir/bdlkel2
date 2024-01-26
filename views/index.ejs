@@ -1,0 +1,143 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Angin</title>
+    <style>
+      .btn4 {
+        margin-top: 10px;
+        padding: 10px;
+        background: #aa34dd;
+        border: 2px solid #000000;
+        border-radius: 20px;
+      }
+      input {
+        padding: 10px;
+        margin-bottom: 15px;
+        /* box-sizing: border-box; */
+        border-radius: 20px;
+        border-color: black;
+      }
+      body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: rgb(152, 152, 152);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #1f1f1f;
+        padding: 8px;
+        text-align: left;
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      th {
+        background-color: #dd7f51;
+        color: rgb(0, 0, 0);
+      }
+      .action-buttons {
+        display: flex;
+        gap: 5px;
+      }
+      .btn2 {
+        padding: 10px;
+        background: #b91515;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        border: 2px solid #000000;
+        border-radius: 10%;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      .btn1 {
+        padding: 10px;
+        background: #20b915;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        border: 2px solid #000000;
+        border-radius: 10%;
+      }
+      .btn3 {
+        margin-top: 10px;
+        padding: 10px;
+        background: #20b915;
+        border: 2px solid #000000;
+        border-radius: 10%;
+      }
+      .btn3 a {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+      .btn5 {
+        margin-top: 10px;
+        padding: 10px;
+        background: #20b915;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        border: 2px solid #000000;
+        border-radius: 10%;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Kualitas Angin</h1>
+
+    <!-- Form pencarian -->
+    <form action="/search" method="get">
+      <div>
+        <input type="text" id="search" name="q" value="<%= typeof searchFilter !== 'undefined' ? searchFilter : '' %>" />
+        <button class="btn4" type="submit">Search</button>
+      </div>
+    </form>
+
+    <button class="btn3" type="button"><a href="/create">Add Data</a></button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>AMB_TEMP "Ambient Temperature"</th>
+          <th>Station</th>
+          <th>CH4</th>
+          <th>Carbon Monoxide</th>
+          <th>NMHC</th>
+          <th>Nitrogen Oxide</th>
+          <th>Nitrogen Oxides</th>
+          <th>Ozone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(item => { %>
+        <tr>
+          <td><%= item.time %></td>
+          <td><%= item.AMB_TEMP %></td>
+          <td><%= item.station %></td>
+          <td><%= item.CH4 %></td>
+          <td><%= item.CO %></td>
+          <td><%= item.NMHC %></td>
+          <td><%= item.NO %></td>
+          <td><%= item.NOx %></td>
+          <td><%= item.O3 %></td>
+          <td class="action-buttons">
+            <!-- Add buttons or links for CRUD actions -->
+            <a href="/update/<%= item._id %>" class="btn1">Update</a>
+            <form action="/delete/<%= item._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+              <!-- Submit button for delete -->
+              <button class="btn2" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>
